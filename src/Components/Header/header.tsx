@@ -2,7 +2,7 @@ import Navbar from "../navbar/navbar";
 import "./header.scss"
 
 // importing component dependencies
-import dash from "../images/shortening-dash.png"
+import plate from "../images/plate.png"
 
 function Header() {
     return (
@@ -16,6 +16,22 @@ function Header() {
                 <div className="header__buttons">
                     <a>Sign Up</a>
                     <a>Learn more</a>
+                </div>
+
+                <div className="header__card">
+                    <div>
+                        <p>Seamlessly transform your long URLs into <strong>concise</strong> and <strong>shareable links</strong> with just few clicks.</p>
+                    </div>
+
+
+                </div>
+                
+                <div>
+                    <img src={plate} alt="#" />
+                </div>
+
+                <div>
+                    
                 </div>
             </div>
         </section>

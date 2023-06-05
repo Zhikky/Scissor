@@ -2,7 +2,7 @@
 
 .header {
   width: 100vw;
-  min-height: 1000px;
+//   min-height: 1000px;
   background: url("../images/header-background.png");
   background-size: cover;
   background-position: top;
@@ -42,21 +42,21 @@
       }
     }
 
-    p {
+    > p {
       width: 60%;
       text-align: center;
       font-size: 1.1em;
       line-height: 1.6em;
     }
 
-    > div {
+    > .header__buttons {
       margin-top: 50px;
       a {
         font-size: 1rem;
         display: inline-block;
       }
 
-      a:hover{
+      a:hover {
         cursor: pointer;
       }
       a:nth-child(1) {
@@ -79,7 +79,48 @@
       a:nth-child(2):hover {
         transform: scale(1.05);
       }
-    
+    }
+
+    > .header__card {
+      width: 650px;
+      height: 300px;
+      background: url("../images/Group2.png");
+      background-size: 260px auto;
+      background-repeat: no-repeat;
+      margin-top: 50px;
+      display: flex;
+      justify-content: flex-end;
+      > div:nth-child(1) {
+        height: 200px;
+        width: 500px;
+        border-radius: 24px;
+        border: 0.5px solid #005ae2;
+        background-color: rgb(254, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        > p {
+            font-size: 1em;
+            line-height: 1.5em;
+            width: 90%;
+            text-align: center;
+            margin: 0;
+
+        }
+      }
+
+      > div:nth-child(2){
+        
+      }
+    }
+
+    > div:nth-child(5){
+        width: 100%;
+        img{
+            width: 100%;
+            height: auto;
+        }
     }
   }
 }
