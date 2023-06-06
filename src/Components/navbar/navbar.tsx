@@ -17,7 +17,7 @@ function Navbar() {
             <div className="navbar__links">
                 <ul className="links1">
                     <li>My URLs</li>
-                    <li>Features</li>
+                    <a href="#features"><li>Features</li></a>
                     <li>Pricing</li>
                     <li>Analytics</li>
                     <li>FAQs</li>

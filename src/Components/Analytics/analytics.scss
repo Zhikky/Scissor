@@ -1,0 +1,117 @@
+.analytics__container {
+  width: 100%;
+  height: 500px;
+  background-image: url("../images/analytics-background.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > form {
+    width: 480px;
+    min-height: 350px;
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 8px rgba(100, 162, 255, 0.18);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3284ff;
+
+    > div {
+      width: 85%;
+
+      input {
+        border: 1px solid #3284ff;
+        border-radius: 12px;
+        font-size: 0.85em;
+        padding: 0px 1em;
+        width: calc(100% - 2em);
+        height: 55px;
+        color: #3284ff;
+        margin-bottom: 1.5em;
+      }
+
+      input::-webkit-input-placeholder {
+        /* Chrome, Safari, Edge, Opera */
+        color: #3284ff;
+        font-size: 1em;
+      }
+      input::-webkit-input-placeholder {
+        /* Chrome, Safari, Edge, Opera */
+        color: #3284ff;
+        font-size: 1em;
+      }
+      input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #3284ff;
+        opacity: 1;
+        font-size: 1em;
+      }
+      input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #3284ff;
+        font-size: 1em;
+      }
+      input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #3284ff;
+        opacity: 1;
+        font-size: 1em;
+      }
+
+      > div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1.5em;
+        > select {
+          border: 1px solid #3284ff;
+          border-radius: 12px;
+          font-size: 0.85em;
+          padding: 0px 1em;
+          width: calc(50% - 2em);
+          height: 55px;
+          color: #3284ff;
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-image: url("../images/down-arrow.png");
+          background-repeat: no-repeat;
+          background-size: 12px auto;
+          background-position: 150px center;
+        }
+
+        > input {
+          width: calc(50% - 2em);
+          margin-bottom: 0;
+        }
+      }
+
+      > button {
+        width: 100%;
+        padding: 1.6em 0px;
+        background: #005ae2;
+        border-radius: 100px;
+        border: 0px;
+        color: #ffffff;
+      }
+    }
+
+    > p{
+        width: 85%;
+        font-size: 0.8em;
+        a{
+            font-weight: bold;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+  }
+}

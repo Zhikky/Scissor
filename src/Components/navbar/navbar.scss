@@ -15,6 +15,11 @@
     justify-content: space-around;
     // background-color: red;
 
+    a{
+      color: black;
+      text-decoration: none;
+    }
+
     ul {
       //   width: 100%;
       display: flex;
@@ -25,6 +30,7 @@
       li {
         width: fit-content;
         padding: 0.8em 1.6em;
+        transition: all 0.3s ease-in-out;
       }
     }
 
@@ -36,31 +42,32 @@
     }
 
     ul:nth-child(1) > li:nth-child(1),
-    ul:nth-child(2) > li:nth-child(1),
-    ul:nth-child(2) > li:nth-child(2) {
+    ul:nth-child(2)  li:nth-child(1),
+    ul:nth-child(2)  li:nth-child(2) {
       color: #0065fe;
     }
 
-    ul:nth-child(2) > li:nth-child(2) {
+    ul:nth-child(2)  li:nth-child(2) {
       border: 1px solid #0065fe;
       border-radius: 100px;
     }
 
-    ul:nth-child(2) > li:nth-child(2):hover {
+    ul:nth-child(2)  li:nth-child(2):hover {
       background-color: #0065fe;
       color: #ffffff;
     }
 
-    ul:nth-child(2) > li:nth-child(3) {
+    ul:nth-child(2)  li:nth-child(3) {
       border-radius: 100px;
       background-color: #0065fe;
       color: white;
       margin-left: 1em;
     }
 
-    ul > li:hover {
+    ul li:hover {
       transform: scale(1.05);
       cursor: pointer;
+      
     }
   }
 }
