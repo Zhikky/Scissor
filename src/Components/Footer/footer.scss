@@ -1,0 +1,83 @@
+@import url('../font.scss');
+
+.footer {
+  background-image: url("../images/footer-background.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  font-family: "Gilroy Medium", sans-serif;
+
+  > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: fit-content;
+    min-height: 400px;
+    margin-bottom: 20px;
+
+    > .socials{
+      display: flex;
+      flex-direction: column;
+      margin-right: 70px;
+      > div:nth-child(1){
+        margin-bottom: 30px;
+      }
+
+      > div:nth-child(2){
+        display: flex;
+        justify-content: space-between;
+
+        i{
+          font-size: 20px;
+        }
+      }
+    }
+
+    > .grid-footer{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      // grid-template-rows: 1fr 1fr;
+      grid-column-gap: 10px;
+      
+
+      div{
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+
+        h3{
+          margin: 0px 0px 6px 0px;
+          font-size: 1em;
+          font-weight: bold;
+
+        }
+        ul{
+          padding: 0;
+          list-style: none;
+          margin: 0;
+          li{
+            padding: 5px 0px;
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  > div:nth-child(2) {
+    justify-self: end;
+    justify-content: flex-end;
+    height: fit-content;
+    display: flex;
+    width: 80%;
+    font-size: 0.9em;
+  }
+}

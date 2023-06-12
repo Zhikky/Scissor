@@ -95,11 +95,18 @@
 
       > button {
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 1.6em 0px;
         background: #005ae2;
         border-radius: 100px;
         border: 0px;
         color: #ffffff;
+
+        img{
+          margin-left: 5px;
+        }
       }
     }
 

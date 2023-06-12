@@ -1,4 +1,5 @@
 import "./analytics.scss"
+import wand from "../images/magic-wand.png"
 
 function Analytics() {
     return (
@@ -19,6 +20,7 @@ function Analytics() {
 
                     <button type="submit">
                         Trim URL
+                        <img src={wand} alt="trim URL"  width="24px"/>
                     </button>
 
 
