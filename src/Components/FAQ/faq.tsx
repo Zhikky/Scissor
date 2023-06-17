@@ -69,7 +69,7 @@ function Faq() {
                 "We are a Nigeria Digital Agency offering a customized Website, Mobile App Development or Digital Marketing services including marketing strategy, content marketing, social media marketing and many more. To find out more about us, click here.",
         },
         {
-            questionId: "question-8",
+            questionId: "question-9",
             question: "Is there an API available for integrating the URL shortening service into my own applications or websites?",
             answer:
                 "We are a Nigeria Digital Agency offering a customized Website, Mobile App Development or Digital Marketing services including marketing strategy, content marketing, social media marketing and many more. To find out more about us, click here.",

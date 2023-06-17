@@ -1,4 +1,5 @@
 import "./navbar.scss";
+import Hamburger from 'hamburger-react';
 
 
 //importing component images and dependencies
@@ -12,6 +13,12 @@ function Navbar() {
                 <a href="/"><img src={logo} alt="logo" width="155px" /></a>
                 
             </div>
+
+            <input type="checkbox" id="toggler" />
+            {/* toggler for mobile navigation */}
+            <label htmlFor="toggler">
+                <Hamburger/>
+            </label>
 
 
             <div className="navbar__links">

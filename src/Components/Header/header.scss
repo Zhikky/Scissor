@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   font-family: "Gilroy Medium", sans-serif;
+  font-size: 16px;
 
   .header__content {
     display: flex;
@@ -19,7 +20,7 @@
 
     h1 {
       font-size: 3em;
-      line-height: 96px;
+      line-height: 2em;
       text-align: center;
       margin-bottom: 10px;
       span {
@@ -32,7 +33,6 @@
           position: absolute;
           bottom: -20px;
           left: 90px;
-          //   right: ;
           width: 173.63px;
           height: 19.91px;
           background-image: url("../images/shortening-dash.png");
@@ -49,9 +49,9 @@
     }
 
     > .header__buttons {
-      margin-top: 50px;
+      margin-top: 3.2em;
       a {
-        font-size: 1rem;
+        font-size: 1em;
         display: inline-block;
         transition: all 0.3s ease-in-out;
       }
@@ -82,17 +82,17 @@
     }
 
     > .header__card {
-      width: 650px;
-      height: 300px;
+      width: 40.6em;
+      height: 18.75em;
       background: url("../images/Group2.png");
-      background-size: 260px auto;
+      background-size: 16.5em auto;
       background-repeat: no-repeat;
-      margin-top: 50px;
+      margin-top: 3.2em;
       display: flex;
       justify-content: flex-end;
       > div:nth-child(1) {
-        height: 200px;
-        width: 500px;
+        height: 12.5em;
+        width: 31.5em;
         border-radius: 24px;
         border: 0.5px solid #005ae2;
         background-color: rgb(254, 255, 255);
@@ -114,7 +114,7 @@
     }
 
     > div:nth-child(5) {
-      width: 100%;
+      width: 100vw;
       height: fit-content;
       display: flex;
       img {
@@ -165,7 +165,6 @@
   .features {
     display: flex;
     width: 100%;
-    // height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +246,7 @@
     background-color: #ffffff;
 
     > div:nth-child(1) {
-      max-width: 575px;
+      max-width: 36em;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -334,23 +333,23 @@
         }
       }
       > div:nth-child(1) {
-        width: 340px;
-        height: 455px;
+        width: 21.25em;
+        height: 28.5em;
         border-radius: 12px 0px 0px 12px;
         border: 0.4px solid #005ae2;
         border-right: none;
       }
       > div:nth-child(3) {
-        width: 340px;
-        height: 455px;
+        width: 21.25em;
+        height: 28.5em;
         border-radius: 0px 12px 12px 0px;
         border: 0.4px solid #005ae2;
         border-left: none;
       }
 
       > div:nth-child(2) {
-        width: 410px;
-        height: 630px;
+        width: 25.7em;
+        height: 40em;
         background: linear-gradient(
           180deg,
           #1e3448 99.99%,
@@ -363,7 +362,7 @@
 
     > .pricing__buttons {
       width: 100%;
-      margin-top: 100px;
+      margin-top: 6.25em;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -398,6 +397,126 @@
         background-color: #ffffff;
         color: #005ae2f0;
         transform: scale(1.03);
+      }
+    }
+  }
+}
+
+@media (max-width: 1140px) {
+  .header {
+    font-size: 15px;
+    .header__content {
+      > .possibilities {
+        > div {
+          width: 55%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1040px) {
+  .header {
+    font-size: 14px;
+    .pricing {
+      > div:nth-child(2) {
+        > div:nth-child(3),
+        > div:nth-child(1) {
+          width: 16em;
+        }
+
+        > div:nth-child(2) {
+          width: 21em;
+        }
+      }
+    }
+
+    .header__content {
+      > .possibilities {
+        flex-direction: column;
+        height: fit-content;
+        padding-bottom: 14px;
+        > p {
+          margin-bottom: 0;
+          margin-top: 20px;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    font-size: 12px;
+
+    .header__content {
+      > .possibilities {
+        > div {
+          justify-content: space-evenly;
+          width: 70%;
+          > div {
+            h2 {
+              max-width: 130px;
+            }
+          }
+        }
+      }
+    }
+
+    .pricing {
+      > div:nth-child(2) {
+        flex-direction: column;
+
+        > div:nth-child(1) {
+          border: 0.4px solid #005ae2;
+          border-radius: 12px 12px 0px 0px;
+          border-bottom: none;
+          width: 24em;
+        }
+
+        > div:nth-child(3) {
+          border: 0.4px solid #005ae2;
+          border-radius: 0px 0px 12px 12px;
+          border-top: none;
+          width: 24em;
+        }
+
+        > div:nth-child(2) {
+          width: 36em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    font-size: 10px;
+
+    .header__content {
+      width: 90%;
+
+      h1 {
+        line-height: 1.7em;
+
+        span {
+          &::after {
+            left: 30px;
+          }
+        }
+      }
+
+      > .possibilities {
+        > div {
+          width: 95%;
+          > div {
+            h2 {
+              max-width: none;
+              width: fit-content;
+            }
+          }
+        }
       }
     }
   }
