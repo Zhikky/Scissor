@@ -1,0 +1,140 @@
+@import url("../font.scss");
+
+.signup__container {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gilroy Medium", sans-serif;
+  font-size: 16px;
+
+  > div {
+    height: auto;
+    width: 40%;
+    padding: 2.4em 1.6em;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+
+    > P:nth-child(2) {
+      position: relative;
+      color: #828387;
+      font-family: "Proxima Nova", sans-serif;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 40%;
+        background: #dde0e2;
+        height: 1px;
+        top: 50%;
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    > form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > div:nth-child(2) {
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        > .password-toggle-icon {
+          position: absolute;
+          top: 42%;
+          right: 10px;
+          font-size: 1em;
+          color: #005ae2;
+        }
+      }
+      input {
+        width: calc(100% - 2.4em);
+        margin: 0.7em 0px;
+        font-size: 1em;
+        padding: 1.2em;
+        border-radius: 0.5em;
+        border: 2px solid #005ae2;
+
+        &::placeholder {
+          color: #a0b1c0;
+          font-weight: bold;
+          font-size: 1em;
+        }
+      }
+
+      > a:nth-child(3) {
+        align-self: flex-end;
+        margin-bottom: 2em;
+        text-decoration: underline;
+        color: #005ae2;
+        font-family: "Proxima Nova", sans-serif;
+      }
+
+      > button {
+        width: 100%;
+        padding: 1.4em 0px;
+        border-radius: 50px;
+        border: none;
+        background-color: #005ae2;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 1em;
+
+        &:hover {
+          transform: scale(1.01);
+        }
+
+        &:active {
+          transform: scale(1);
+        }
+      }
+    }
+    > p {
+      text-align: center;
+      color: #6c6d71;
+      font-family: "Gilroy Medium", sans-serif;
+
+      > a {
+        color: #005ae2;
+        text-decoration: underline;
+      }
+    }
+
+    > p:nth-child(5) {
+      > a {
+        color: #6c6d7198;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      > a:hover {
+        color: #005ae2bd;
+      }
+    }
+  }
+  > div:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .signup__container {
+    font-size: 12px;
+
+    > div {
+      width: 60%;
+    }
+  }
+}

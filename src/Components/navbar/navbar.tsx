@@ -1,9 +1,8 @@
 import "./navbar.scss";
 import Hamburger from 'hamburger-react';
-
-
 //importing component images and dependencies
 import logo from "../images/logo.png"
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -11,13 +10,13 @@ function Navbar() {
 
             <div className="navbar__logo">
                 <a href="/"><img src={logo} alt="logo" width="155px" /></a>
-                
+
             </div>
 
             <input type="checkbox" id="toggler" />
             {/* toggler for mobile navigation */}
             <label htmlFor="toggler">
-                <Hamburger/>
+                <Hamburger />
             </label>
 
 
@@ -33,7 +32,7 @@ function Navbar() {
                 <ul>
 
                     <li>Log in</li>
-                    <li>Try for free</li>
+                    <NavLink to="/SignUp"><li>Sign Up</li></NavLink>
                     <li>Try for free</li>
                 </ul>
 

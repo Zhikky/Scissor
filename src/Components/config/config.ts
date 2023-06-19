@@ -10,11 +10,10 @@ const firebaseConfig = {
   projectId: "scissor-alt",
   storageBucket: "scissor-alt.appspot.com",
   messagingSenderId: "268642048024",
-  appId: "1:268642048024:web:126c2c3602af6de4344b6d",
+  appId: "1:268642048024:web:126c2c3602af6de4344b6d"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-
-export default app;
+export default firebaseApp;
