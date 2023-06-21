@@ -2,12 +2,12 @@ import React from 'react';
 import './App.scss';
 import Home from './Components/home';
 import SignUp from './Components/Signup/signup';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import firebaseApp from './Components/config/config';
-import firebase from 'firebase/compat/app';
+// import firebase from 'firebase/compat/app';
 
 // Initialize Firebase app
-firebase.initializeApp(firebaseApp);
+// firebase.initializeApp(firebaseApp);
 
 function App() {
   return (

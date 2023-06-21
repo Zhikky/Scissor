@@ -10,6 +10,7 @@
   align-items: center;
   font-family: "Gilroy Medium", sans-serif;
   font-size: 16px;
+  background-color: #eef0f1;
 
   > div {
     height: auto;
@@ -17,28 +18,12 @@
     padding: 2.4em 1.6em;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
 
     > P:nth-child(2) {
       position: relative;
       color: #828387;
       font-family: "Proxima Nova", sans-serif;
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        width: 40%;
-        background: #dde0e2;
-        height: 1px;
-        top: 50%;
-      }
-
-      &::before {
-        left: 0;
-      }
-
-      &::after {
-        right: 0;
-      }
     }
 
     > form {
@@ -47,7 +32,7 @@
       align-items: center;
       justify-content: center;
 
-      > div:nth-child(2) {
+      > div:nth-child(3) {
         width: 100%;
         height: fit-content;
         position: relative;
@@ -74,7 +59,7 @@
         }
       }
 
-      > a:nth-child(3) {
+      > a:nth-child(4) {
         align-self: flex-end;
         margin-bottom: 2em;
         text-decoration: underline;
@@ -123,10 +108,6 @@
       }
     }
   }
-  > div:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  }
 }
 
 @media (max-width: 760px) {
@@ -135,6 +116,17 @@
 
     > div {
       width: 60%;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .signup__container {
+    font-size: 10px;
+    height: 70vh;
+
+    > div {
+      width: 80%;
     }
   }
 }
