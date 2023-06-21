@@ -153,3 +153,15 @@
     }
   }
 }
+
+@media screen and (max-width: 750px) {
+  .navbar {
+    font-size: 12px;
+
+    .navbar__links{
+      ul{
+        padding-left: 20px;
+      }
+    }
+  }
+}

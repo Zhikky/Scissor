@@ -31,7 +31,7 @@ function Navbar() {
 
                 <ul>
 
-                    <li>Log in</li>
+                    <NavLink to="/SignIn"><li>Log In</li></NavLink>
                     <NavLink to="/SignUp"><li>Sign Up</li></NavLink>
                     <li>Try for free</li>
                 </ul>

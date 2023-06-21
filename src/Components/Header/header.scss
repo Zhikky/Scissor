@@ -487,6 +487,31 @@
         }
       }
     }
+
+    .features{
+      > div{
+        flex-direction: column;
+        > div:nth-child(1){
+          width: 100%;
+          align-self: center;
+          margin-bottom: 20px;
+          > h2{
+            text-align: center;
+            > span{
+              &::after{
+                left: -170px;
+                height: 30px;
+              }
+            }
+          }
+        }
+
+        > div:nth-child(2){
+          margin: 0;
+          margin-left: 15px;
+        }
+      }
+    }
   }
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Home from './Components/home';
 import SignUp from './Components/Signup/signup';
+import SignIn from './Components/SignIn/signin';
 import { Routes, Route } from 'react-router-dom';
 import firebaseApp from './Components/config/config';
 // import firebase from 'firebase/compat/app';
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/SignUp" element={<SignUp firebaseApp={firebaseApp} />} />
+        <Route path="/SignIn" element={<SignIn firebaseApp={firebaseApp} />} />
       </Routes>
     </div>
   );
