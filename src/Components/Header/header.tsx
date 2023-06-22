@@ -1,14 +1,17 @@
+import React from "react";
 import Navbar from "../navbar/navbar";
-import "./header.scss"
+import "./header.scss";
+
 
 // importing component dependencies
-import plate from "../images/plate.png"
-import link_eclipse from "../images/link-eclipse.png"
-import link_pen from "../images/link-pen.png"
-import link_code from "../images/link-code.png"
-import link_analytics from "../images/link-analytics.png"
-import bullet_circle from "../images/bullet-circle.png"
-import bullet_circle_white from "../images/bullet-circle-white.png"
+import plate from "../images/plate.png";
+import link_eclipse from "../images/link-eclipse.png";
+import link_pen from "../images/link-pen.png";
+import link_code from "../images/link-code.png";
+import link_analytics from "../images/link-analytics.png";
+import bullet_circle from "../images/bullet-circle.png";
+import bullet_circle_white from "../images/bullet-circle-white.png";
+import link from "../images/link.png"
 
 function Header() {
     return (
@@ -26,6 +29,7 @@ function Header() {
 
                 <div className="header__card">
                     <div>
+                        <img src={link} alt="link" width="80%"/>
                         <p>Seamlessly transform your long URLs into <strong>concise</strong> and <strong>shareable links</strong> with just few clicks.</p>
                     </div>
 
@@ -102,9 +106,9 @@ function Header() {
                             <h2>Free</h2>
                             <h3>Free plan for all users</h3>
                             <ul>
-                                <li> <img src={bullet_circle} alt="bullet point" width="16px" />Unlimited URL Shortening</li>
+                                <li> <img src={bullet_circle} alt="bullet point" width="16px" />Limited URL Shortening</li>
                                 <li><img src={bullet_circle} alt="bullet point" width="16px" />Basic Link Analytics</li>
-                                <li><img src={bullet_circle} alt="bullet point" width="16px" />Customizable Short Links</li>
+                                <li><img src={bullet_circle} alt="bullet point" width="16px" />Qr code generation</li>
                                 <li><img src={bullet_circle} alt="bullet point" width="16px" />Standard Support</li>
                                 <li><img src={bullet_circle} alt="bullet point" width="16px" />Ad-supported</li>
                             </ul>

@@ -1,6 +1,7 @@
 .analytics__container {
   width: 100%;
-  height: 31.5em;
+  height: auto;
+  padding: 2em 0px;
   background-image: url("../images/analytics-background.png");
   background-position: center;
   background-size: cover;
@@ -10,7 +11,8 @@
 
   > form {
     width: 30em;
-    min-height: 22em;
+    min-height: 20em;
+    padding: 1em;
     background-color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0px 4px 8px rgba(100, 162, 255, 0.18);
@@ -84,12 +86,20 @@
           background-image: url("../images/down-arrow.png");
           background-repeat: no-repeat;
           background-size: 12px auto;
-          background-position: 150px center;
+          background-position: 90% center;
         }
 
         > input {
           width: calc(50% - 2em);
           margin-bottom: 0;
+          border:1px solid #828387 ;
+          cursor: not-allowed;
+
+          &::placeholder{
+            text-decoration: line-through;
+            color: #828387;
+            font-weight: bold;
+          }
         }
       }
 
@@ -108,6 +118,35 @@
         img {
           margin-left: 5px;
         }
+
+        &:hover {
+          transform: scale(1.01);
+          cursor: pointer;
+        }
+
+        &:active{
+          transform: scale(1);
+        }
+      }
+
+      > div:nth-child(4){
+        margin: 1.5em 0px 0.5em 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      > input:nth-child(4) {
+        margin-top: 1.5em;
+        margin-bottom: 0px;
+        color: rgb(40, 39, 39);
+        border: none;
+
+        &::-webkit-input-placeholder {
+          /* Chrome, Safari, Edge, Opera */
+          color: rgb(40, 39, 39);
+          font-size: 1em;
+        }
       }
     }
 
@@ -116,6 +155,7 @@
       font-size: 0.8em;
       a {
         font-weight: bold;
+        color: #3284ff;
       }
       a:hover {
         text-decoration: underline;
@@ -125,23 +165,19 @@
 }
 
 @media (max-width: 1140px) {
-
-  .analytics__container{
+  .analytics__container {
     font-size: 14px;
   }
 }
 
 @media (max-width: 760px) {
-
-  .analytics__container{
+  .analytics__container {
     font-size: 12px;
   }
 }
 
 @media (max-width: 420px) {
-
-  .analytics__container{
+  .analytics__container {
     font-size: 10px;
   }
 }
-

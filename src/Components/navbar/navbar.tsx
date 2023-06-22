@@ -1,3 +1,4 @@
+import React from "react";
 import "./navbar.scss";
 import Hamburger from 'hamburger-react';
 //importing component images and dependencies
@@ -33,7 +34,7 @@ function Navbar() {
 
                     <NavLink to="/SignIn"><li>Log In</li></NavLink>
                     <NavLink to="/SignUp"><li>Sign Up</li></NavLink>
-                    <li>Try for free</li>
+                    <a href="#analytics"><li>Try for free</li></a>
                 </ul>
 
             </div>

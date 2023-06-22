@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import "./signin.scss";
 import React, { useState } from 'react';
 import { FirebaseApp } from 'firebase/app';
@@ -30,6 +31,7 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
 
             // Redirect to the home page
             navigate('/');
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Sign-in error:', error.message);
             alert('Sign-in error. Please check your email and password.');
@@ -72,7 +74,7 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
 
                     </form>
                     <p>Don't have an account? <NavLink to="/SignUp">Sign Up</NavLink></p>
-                    <p>By signing in with an account, you agree to<br /> Sciccor's <a>Terms of Service,</a> <a>Privacy Policy</a> and <a>Acceptable Use Policy.</a> </p>
+                    <p>By signing in with an account, you agree to<br /> Scissor's <a>Terms of Service,</a> <a>Privacy Policy</a> and <a>Acceptable Use Policy.</a> </p>
                 </div>
             </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
@@ -91,8 +92,8 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
                         <button type='submit'>Sign up</button>
 
                     </form>
-                    <p>Already have an account? <NavLink to="/SignUp">Sign in</NavLink></p>
-                    <p>By signing in with an account, you agree to<br /> Sciccor's <a>Terms of Service,</a> <a>Privacy Policy</a> and <a>Acceptable Use Policy.</a> </p>
+                    <p>Already have an account? <NavLink to="/SignIn">Sign in</NavLink></p>
+                    <p>By signing in with an account, you agree to<br /> Scissors <a>Terms of Service,</a> <a>Privacy Policy</a> and <a>Acceptable Use Policy.</a> </p>
                 </div>
             </div>
 

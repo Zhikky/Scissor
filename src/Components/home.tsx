@@ -1,3 +1,4 @@
+import React from "react";
 import Analytics from "./Analytics/analytics";
 import Faq from "./FAQ/faq";
 import Header from "./Header/header";
