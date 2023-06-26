@@ -5,6 +5,10 @@ import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Footer from '../Footer/footer';
+
+//Importing Formik and Yup for Form Validation
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import "./signup.scss";
 
 interface SignUpProps {
@@ -12,16 +16,17 @@ interface SignUpProps {
 }
 
 const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
-    // State variables for signup form fields
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    // Handle form submission
-    const handleSignup = async (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log(password);
+
+    const validationSchema = Yup.object({
+        name: Yup.string().required('Name is required'),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+    });
+
+    const handleSignup = async (values: { name: string, email: string, password: string }) => {
+        const { name, email, password } = values;
 
         try {
             const auth = getAuth(firebaseApp);
@@ -38,9 +43,7 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
                 await setDoc(doc(collection(db, 'users'), userCredential.user.uid), userData);
 
                 // Clear form fields
-                setName('');
-                setEmail('');
-                setPassword('');
+                formik.resetForm();
 
                 // Display success message to the user
                 alert('Signup successful! Please check your email for verification.');
@@ -52,9 +55,15 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
         }
     };
 
-    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(event.target.value);
-    };
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            password: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: handleSignup,
+    });
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
@@ -66,20 +75,21 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
 
             <div className='signup__container'>
                 <div>
-                    <form onSubmit={handleSignup}>
+                    <form onSubmit={formik.handleSubmit}>
 
-                        <input type="text" placeholder='Full Name' value={name} onChange={(e) => setName(e.target.value)} />
-                        <input type="text" placeholder="Email address" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        {/* <input type="password" placeholder='Password' /> */}
-                        <div>
+                        <input type="text" placeholder='Full Name' id="name" {...formik.getFieldProps('name')} />
+                        {formik.touched.name && formik.errors.name && <div className='error'>{formik.errors.name}</div>}
+                        <input type="text" placeholder="Email address" required id="email" {...formik.getFieldProps('email')} />
+                        {formik.touched.email && formik.errors.email && <div className='error'>{formik.errors.email}</div>}
+                        <div className='password__signup'>
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 // id="password"
-                                value={password}
-                                onChange={handlePasswordChange}
+                                id="password" {...formik.getFieldProps('password')}
                                 placeholder="Password"
                                 className='password'
                             />
+                            {formik.touched.password && formik.errors.password && <div className='error'>{formik.errors.password}</div>}
                             <i className={`fa-solid password-toggle-icon ${showPassword ? "fa-eye" : "fa-eye-slash"}`}
                                 onClick={handleTogglePassword}
                             >

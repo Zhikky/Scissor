@@ -163,14 +163,22 @@
     }
 
     > button {
-      color: white;
-      background-color: #005ae2;
+      color: #005ae2;
+      background-color: white;
       padding: 0.8rem 1rem;
       border-radius: 12px;
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      transition: all 0.2s ease-in-out;
+      font-size: 0.9em;
 
-      &:focus {
-        outline: none !important;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+      }
+
+      &:active{
+        transform: scale(1);
       }
     }
   }

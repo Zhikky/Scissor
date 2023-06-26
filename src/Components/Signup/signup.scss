@@ -32,7 +32,11 @@
       align-items: center;
       justify-content: center;
 
-      > div:nth-child(3) {
+      .error{
+        width: 100%;
+      }
+
+      > .password__signup {
         width: 100%;
         height: fit-content;
         position: relative;
@@ -59,7 +63,7 @@
         }
       }
 
-      > a:nth-child(4) {
+      > a {
         align-self: flex-end;
         margin-bottom: 2em;
         text-decoration: underline;

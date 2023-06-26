@@ -4,7 +4,7 @@ import Home from './Components/home';
 import SignUp from './Components/Signup/signup';
 import SignIn from './Components/SignIn/signin';
 import { Routes, Route } from 'react-router-dom';
-import firebaseApp from './Components/config/config';
+import { firebaseApp } from './Components/config/config';
 // import firebase from 'firebase/compat/app';
 
 // Initialize Firebase app

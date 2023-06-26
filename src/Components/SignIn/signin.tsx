@@ -7,36 +7,52 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Footer from '../Footer/footer';
 
+//Importing Formik and Yup for Form Validation
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 
 interface SignInProps {
     firebaseApp: FirebaseApp;
 }
 
 const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
-    const handleSignIn = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const validationSchema = Yup.object({
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        password: Yup.string().required('Password is required'),
+    });
+
+    const handleSignIn = async (values: { email: string, password: string }) => {
+        const { email, password } = values;
 
         try {
             const auth = getAuth(firebaseApp);
             await signInWithEmailAndPassword(auth, email, password);
 
             // Clear form fields
-            setEmail('');
-            setPassword('');
+            formik.resetForm();
 
             // Redirect to the home page
             navigate('/');
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Sign-in error:', error.message);
             alert('Sign-in error. Please check your email and password.');
         }
     };
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: handleSignIn,
+    });
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
@@ -49,18 +65,18 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
 
             <div className="signin__container">
                 <div>
-                    <form onSubmit={handleSignIn}>
-                        <input type="email" placeholder="Email address" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        {/* <input type="password" placeholder='Password' /> */}
-                        <div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <input type="email" placeholder="Email address" required id="email" {...formik.getFieldProps('email')} />
+                        {formik.touched.email && formik.errors.email && <div className='error'>{formik.errors.email}</div>}
+                        <div className="signin__password">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 // id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                id="password" {...formik.getFieldProps('password')}
                                 placeholder="Password"
                                 className='password'
                             />
+                            {formik.touched.password && formik.errors.password && <div className='error'>{formik.errors.password}</div>}
                             <i className={`fa-solid password-toggle-icon ${showPassword ? "fa-eye" : "fa-eye-slash"}`}
                                 onClick={handleTogglePassword}
                             >
