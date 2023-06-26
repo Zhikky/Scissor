@@ -92,10 +92,10 @@
         > input {
           width: calc(50% - 2em);
           margin-bottom: 0;
-          border:1px solid #828387 ;
+          border: 1px solid #828387;
           cursor: not-allowed;
 
-          &::placeholder{
+          &::placeholder {
             text-decoration: line-through;
             color: #828387;
             font-weight: bold;
@@ -124,12 +124,12 @@
           cursor: pointer;
         }
 
-        &:active{
+        &:active {
           transform: scale(1);
         }
       }
 
-      > div:nth-child(4){
+      > div:nth-child(4) {
         margin: 1.5em 0px 0.5em 0px;
         display: flex;
         justify-content: center;
@@ -159,6 +159,18 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+    }
+
+    > button {
+      color: white;
+      background-color: #005ae2;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: none;
+
+      &:focus {
+        outline: none !important;
       }
     }
   }

@@ -1,28 +1,32 @@
 import "./analytics.scss";
 import wand from "../images/magic-wand.png";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { shortenUrl } from "./bitlyService";
-import QRCode from 'qrcode.react';
+import QRCode from 'qrcode.react'
+import { toPng } from 'html-to-image';
 
-//Access token: 44ec1badb674cf7364e1317ab3db5884d4a9d397
 
 function Analytics() {
     const [longUrl, setLongUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
     const [selectedOption, setSelectedOption] = useState('shorten_url');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
+    const [exportButton, SetExportButton] = useState(false)
+
+
+    const qrCodeRef = useRef(null);
+
 
     const handleShortenUrl = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             const shortenedUrl = await shortenUrl(longUrl);
             setShortUrl(shortenedUrl);
-            console.log(shortenedUrl)
 
         } catch (error) {
             console.error('URL shortening error:', error);
             // Handle error gracefully
-        } 
+        }
         setIsButtonClicked(true);
     };
 
@@ -32,18 +36,52 @@ function Analytics() {
 
     const getButtonText = () => {
         if (selectedOption === 'qr_code') {
+            // SetExportButton(true);
             return 'Generate QR Code';
         } else {
+            // SetExportButton(false);
             return 'Shorten Url';
         }
     };
+
+    const getExportButton = () => {
+        if (selectedOption === 'qr_code') {
+            SetExportButton(true);
+        } else {
+            SetExportButton(false);
+        }
+    };
+
+    const exportQRCode = () => {
+        if (qrCodeRef.current) {
+            toPng(qrCodeRef.current)
+                .then(function (dataUrl) {
+                    // // Handle the generated image data URL
+                    // console.log(dataUrl);
+                    // setQrCodeImage(dataUrl);
+
+                    // Create a temporary link element
+                    const link = document.createElement('a');
+                    link.href = dataUrl;
+                    link.download = 'qrcode.png';
+                    // Trigger the download
+                    link.click();
+                })
+                .catch(function (error) {
+                    // Handle errors
+                    console.error('QR code export error:', error);
+                });
+        }
+    };
+
 
     return (
         <div className="analytics__container" id="analytics">
             <form onSubmit={handleShortenUrl}>
                 <div>
                     <input type="text" placeholder="Paste URL here..." value={longUrl}
-                        onChange={(e) => setLongUrl(e.target.value)} required />
+                        onChange={(e) => setLongUrl(e.target.value)}
+                        required />
                     <div>
                         <select value={selectedOption} onChange={handleOptionChange}>
                             <option value="shorten_url">Shorten Url</option>
@@ -53,19 +91,20 @@ function Analytics() {
                         <input type="text" placeholder="Type Alias here" readOnly />
                     </div>
 
-                    <button type="submit">
+                    <button type="submit"
+                        onClick={getExportButton}
+                    >
                         {getButtonText()}
                         <img src={wand} alt="trim URL" width="24px" />
                     </button>
 
-                    {/* {isButtonClicked && <p>Shortened URL: {shortUrl}</p>} */}
-                    {/* <input type="text" placeholder="Shortened url: " value={`Shortened url: ${shortUrl}`} />
-                    <QRCode value={longUrl} /> */}
-
                     {isButtonClicked && (
                         <div>
                             {selectedOption === 'qr_code' ? (
-                                <QRCode value={longUrl} fgColor="#133568"/>
+                                <div ref={qrCodeRef}>
+                                    <QRCode value={longUrl} fgColor="#133568" />
+                                </div>
+
                             ) : (
                                 <p>Shortened URL: {shortUrl}</p>
                             )}
@@ -76,6 +115,7 @@ function Analytics() {
                 </div>
 
                 <p>By clicking TrimURL, I agree to the <a href="/">Terms of Service,</a> <a href="/">Privacy Policy</a> and Use of Cookies.</p>
+                {exportButton && <button onClick={exportQRCode}>Export QRCode</button>}
             </form >
         </div>
 
