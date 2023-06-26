@@ -488,17 +488,17 @@
       }
     }
 
-    .features{
-      > div{
+    .features {
+      > div {
         flex-direction: column;
-        > div:nth-child(1){
+        > div:nth-child(1) {
           width: 100%;
           align-self: center;
           margin-bottom: 20px;
-          > h2{
+          > h2 {
             text-align: center;
-            > span{
-              &::after{
+            > span {
+              &::after {
                 left: -170px;
                 height: 30px;
               }
@@ -506,7 +506,7 @@
           }
         }
 
-        > div:nth-child(2){
+        > div:nth-child(2) {
           margin: 0;
           margin-left: 15px;
         }
@@ -522,6 +522,19 @@
     .header__content {
       width: 90%;
 
+      > .header__buttons {
+        margin-top: 2.2em;
+      }
+
+      > .header__card {
+        width: 39em;
+        // height: 15.6em;
+        background-position: left center;
+        > div:nth-child(1) {
+          width: 30.2em;
+        }
+      }
+
       h1 {
         line-height: 1.7em;
 
@@ -531,9 +544,9 @@
           }
         }
       }
-       > p{
+      > p {
         width: 90%;
-       }
+      }
 
       > .possibilities {
         > div {
@@ -548,9 +561,18 @@
       }
     }
 
-    .pricing{
-      > div:nth-child(1){
-        > h2{
+    .features {
+      padding-bottom: 4.25em;
+      > div {
+        > div:nth-child(2) {
+          row-gap: 25px;
+        }
+      }
+    }
+
+    .pricing {
+      > div:nth-child(1) {
+        > h2 {
           margin-top: 0px;
         }
       }
