@@ -66,9 +66,11 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
             <div className="signin__container">
                 <div>
                     <form onSubmit={formik.handleSubmit}>
+                        <label htmlFor="email">Email</label>
                         <input type="email" placeholder="Email address" required id="email" {...formik.getFieldProps('email')} />
                         {formik.touched.email && formik.errors.email && <div className='error'>{formik.errors.email}</div>}
                         <div className="signin__password">
+                            <label htmlFor="password">Password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 // id="password"

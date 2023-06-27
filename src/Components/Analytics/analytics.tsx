@@ -56,9 +56,6 @@ function Analytics() {
         if (qrCodeRef.current) {
             toPng(qrCodeRef.current)
                 .then(function (dataUrl) {
-                    // // Handle the generated image data URL
-                    // console.log(dataUrl);
-                    // setQrCodeImage(dataUrl);
 
                     // Create a temporary link element
                     const link = document.createElement('a');
