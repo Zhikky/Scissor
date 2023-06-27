@@ -579,3 +579,17 @@
     }
   }
 }
+
+@media (max-width: 398px) {
+  .header{
+    .header__content{
+      h1{
+        span{
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

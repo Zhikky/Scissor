@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
 import { FirebaseApp } from 'firebase/app';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Footer from '../Footer/footer';
 import { useFormik } from 'formik';
@@ -15,8 +15,14 @@ interface SignUpProps {
     firebaseApp: FirebaseApp; // Replace 'any' with the appropriate type for your Firebase app
 }
 
+const Loader = () => {
+    return <span className="loader"></span>;
+};
+
 const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const navigate = useNavigate();
 
     const validationSchema = Yup.object({
         name: Yup.string().required('Name is required'),
@@ -26,7 +32,7 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
 
     const handleSignup = async (values: { name: string; email: string; password: string }) => {
         const { name, email, password } = values;
-
+        setSubmitting(true); // Set submitting state to true
         try {
             const auth = getAuth(firebaseApp);
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -43,11 +49,17 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
                 formik.resetForm();
 
                 toast.success('Signup successful! Please check your email for verification.');
+                setSubmitting(false);
+
+                setTimeout(() => {
+                    navigate('/SignIn');
+                }, 2000); // Wait for 2 seconds (2000 milliseconds) before navigating
             }
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Signup error:', error.message);
             toast.error('Signup error. Please try again.');
+            setSubmitting(false); // Set submitting state to false
         }
     };
 
@@ -97,7 +109,7 @@ const SignUp: React.FC<SignUpProps> = ({ firebaseApp }) => {
 
                         <a>Forgot your password?</a>
 
-                        <button type='submit'>Sign up</button>
+                        <button type='submit'>{submitting ? <Loader /> : "Sign Up"}</button>
 
                     </form>
                     <p>Already have an account? <NavLink to="/SignIn">Sign in</NavLink></p>

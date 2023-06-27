@@ -16,8 +16,13 @@ interface SignInProps {
     firebaseApp: FirebaseApp;
 }
 
+const Loader = () => {
+    return <span className="loader"></span>;
+};
+
 const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
     const navigate = useNavigate();
 
     const validationSchema = Yup.object({
@@ -27,13 +32,15 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
 
     const handleSignIn = async (values: { email: string, password: string }) => {
         const { email, password } = values;
-
+        setSubmitting(true); // Set submitting state to true
         try {
             const auth = getAuth(firebaseApp);
             await signInWithEmailAndPassword(auth, email, password);
 
             // Clear form fields
             formik.resetForm();
+
+            setSubmitting(false);
 
             // Redirect to the home page
             navigate('/');
@@ -42,6 +49,7 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
         } catch (error: any) {
             console.error('Sign-in error:', error.message);
             alert('Sign-in error. Please check your email and password.');
+            setSubmitting(false); // Set submitting state to false
         }
     };
 
@@ -88,7 +96,7 @@ const SignIn: React.FC<SignInProps> = ({ firebaseApp }) => {
 
                         <a>Forgot your password?</a>
 
-                        <button type='submit'>Sign In</button>
+                        <button type='submit'>{submitting ? <Loader /> : "Sign In"}</button>
 
                     </form>
                     <p>Don't have an account? <NavLink to="/SignUp">Sign Up</NavLink></p>

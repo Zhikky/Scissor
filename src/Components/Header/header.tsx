@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
 import "./header.scss";
+import { NavLink } from "react-router-dom";
 
 
 // importing component dependencies
@@ -23,7 +24,7 @@ function Header() {
                 <h1>Optimize Your Online Experience with Our Advanced <span>URL Shortening</span> Solution</h1>
                 <p>Personalize your shortened URLs to align with your brand identity. Utilize custom slugs, branded links, and domain customization options to reinforce your brand presence and enhance user engagement.</p>
                 <div className="header__buttons">
-                    <a href="#">Sign Up</a>
+                    <NavLink to="/SignUp">Sign Up</NavLink>
                     <a href="#">Learn more</a>
                 </div>
 

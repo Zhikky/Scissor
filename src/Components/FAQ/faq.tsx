@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./faq.scss"
 
@@ -109,7 +110,7 @@ function Faq() {
             <div>
                 <h2>Revolutionizing Link Optimization</h2>
 
-                <a>Get Started</a>
+                <NavLink to="/SignUp">Get Started</NavLink>
 
             </div>
         </div>

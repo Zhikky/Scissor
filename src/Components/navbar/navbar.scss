@@ -162,6 +162,16 @@
       ul{
         padding-left: 20px;
       }
+
+      ul:nth-child(2){
+        a:nth-child(3){
+          li{
+            margin-left: 0;
+            text-align: center;
+            padding-left: 1.6em;
+          }
+        }
+      }
     }
   }
 }
