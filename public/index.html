@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="./logo.png" width="16px" height="auto"/>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./logo.png"
+      width="16px"
+      height="auto"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -16,6 +22,11 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+
+    <!-- Styleing socumentation for AOS -->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -42,6 +53,18 @@
     -->
 
     <!-- importing icon documentation -->
-    <script src="https://kit.fontawesome.com/b48db17780.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/b48db17780.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Importing container anaimation documentation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration:1000,
+        once: "true"
+      });
+    </script>
   </body>
 </html>

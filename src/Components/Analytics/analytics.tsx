@@ -6,6 +6,7 @@ import QRCode from 'qrcode.react'
 import { toPng } from 'html-to-image';
 
 
+
 function Analytics() {
     const [longUrl, setLongUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
@@ -14,7 +15,7 @@ function Analytics() {
     const [exportButton, SetExportButton] = useState(false)
 
 
-    const qrCodeRef = useRef(null);
+    const qrCodeRef = useRef<HTMLDivElement>(null);
 
 
     const handleShortenUrl = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -54,9 +55,19 @@ function Analytics() {
 
     const exportQRCode = () => {
         if (qrCodeRef.current) {
-            toPng(qrCodeRef.current)
-                .then(function (dataUrl) {
+            const exportOptions = {
+                style: {
+                    transform: 'scale(2)', // Increase scale for higher resolution
+                    transformOrigin: 'top left',
+                },
+                width: qrCodeRef.current.offsetWidth * 2, // Double the width for higher resolution
+                height: qrCodeRef.current.offsetHeight * 2, // Double the height for higher resolution
+                quality: 1, // Set the image quality to the maximum
+                pixelRatio: 2, // Increase pixel density for higher resolution
+            };
 
+            toPng(qrCodeRef.current, exportOptions)
+                .then(function (dataUrl) {
                     // Create a temporary link element
                     const link = document.createElement('a');
                     link.href = dataUrl;
@@ -99,7 +110,7 @@ function Analytics() {
                         <div>
                             {selectedOption === 'qr_code' ? (
                                 <div ref={qrCodeRef}>
-                                    <QRCode value={longUrl} fgColor="#133568" />
+                                    <QRCode value={longUrl} fgColor="#000000" />
                                 </div>
 
                             ) : (
